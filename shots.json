@@ -1,4 +1,6 @@
 [
   { "name": "1-foot.jpg", "query": "?scene=foot" },
-  { "name": "2-drive.jpg", "query": "?scene=drive" }
+  { "name": "2-drive.jpg", "query": "?scene=drive" },
+  { "name": "3-chase.jpg", "query": "?scene=chase" },
+  { "name": "4-mission.jpg", "query": "?scene=mission" }
 ]
