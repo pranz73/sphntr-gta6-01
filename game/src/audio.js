@@ -1,0 +1,4 @@
+let ac=null,muted=false,osc=null,gain=null;function setup(){if(ac)return;try{ac=new AudioContext();osc=ac.createOscillator();gain=ac.createGain();osc.type='sawtooth';gain.gain.value=0;osc.connect(gain).connect(ac.destination);osc.start()}catch{}}
+export function engine(speed){setup();if(!ac||muted)return;gain.gain.setTargetAtTime(Math.abs(speed)>.1?.018:0,ac.currentTime,.15);osc.frequency.setTargetAtTime(55+Math.abs(speed)*1.4,ac.currentTime,.1)}
+export function tone(freq=120,dur=.13){setup();if(!ac||muted)return;let o=ac.createOscillator(),g=ac.createGain();o.frequency.value=freq;g.gain.setValueAtTime(.08,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+dur)}
+export function toggle(){muted=!muted;if(gain&&ac)gain.gain.setTargetAtTime(0,ac.currentTime,.03);return muted}
